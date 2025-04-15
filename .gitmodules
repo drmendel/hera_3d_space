@@ -1,0 +1,6 @@
+[submodule "hera_spice_ws_server"]
+	path = hera_spice_ws_server
+	url = https://github.com/drmendel/hera_spice_ws_server
+[submodule "hera_spice_3d_client"]
+	path = hera_spice_3d_client
+	url = https://github.com/drmendel/hera_spice_3d_client
