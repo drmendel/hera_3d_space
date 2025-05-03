@@ -1,0 +1,44 @@
+services:
+  reverse_proxy:
+    image: proxy:test
+    container_name: reverse_proxy
+    restart: unless-stopped
+    environment:
+      - DOMAIN_NAME=localhost                       # Your domain name or public IP
+    volumes:
+      - ./ssl/key.pem:/etc/nginx/ssl/key.pem:ro     # SSL private key (host path → container path)
+      - ./ssl/cert.pem:/etc/nginx/ssl/cert.pem:ro   # SSL certificate (host path → container path)
+      #- ./nginx.conf:/etc/nginx/nginx.conf.tmp      # Custom nginx config (host path → container path) (optional)
+    ports:
+      - "80:80"     # HTTP
+      - "443:443"   # HTTPS
+    networks:
+      - app_net
+    depends_on:
+      - backend
+      - frontend
+
+  frontend:
+    image: client:test
+    container_name: frontend
+    restart: unless-stopped
+    environment:
+      - PORT=80           # Change if using a custom nginx config
+    networks:
+      - app_net
+
+  backend:
+    image: server:test
+    container_name: backend
+    restart: unless-stopped
+    volumes:
+      - ./data:/data:rw  # Local folder for storing SPICE kernel data (host path → container path)
+    environment:
+      - PORT=80          # Change if using a custom nginx config
+      - SYNC_INTERVAL=1  # Spice kernel syncronization interval in hours
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge
