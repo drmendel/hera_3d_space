@@ -1,6 +1,6 @@
 services:
   reverse_proxy:
-    image: proxy:test
+    image: drmendel/hera_spice_3d_space:latest
     container_name: reverse_proxy
     restart: unless-stopped
     environment:
@@ -19,7 +19,7 @@ services:
       - frontend
 
   frontend:
-    image: client:test
+    image: drmendel/hera_spice_3d_client:latest
     container_name: frontend
     restart: unless-stopped
     environment:
@@ -28,7 +28,7 @@ services:
       - app_net
 
   backend:
-    image: server:test
+    image: drmendel/hera_spice_ws_server:latest
     container_name: backend
     restart: unless-stopped
     volumes:
