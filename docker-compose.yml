@@ -34,8 +34,8 @@ services:
     volumes:
       - ./data:/data:rw  # Local folder for storing SPICE kernel data (host path → container path)
     environment:
-      - PORT=80          # Change if using a custom nginx config
-      - SYNC_INTERVAL=1  # Spice kernel syncronization interval in hours
+      - PORT=80             # Change if using a custom nginx config (optional)
+      - SYNC_INTERVAL=3600  # Spice kernel syncronization interval in seconds (optional)
     networks:
       - app_net
 
