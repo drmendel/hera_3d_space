@@ -4,7 +4,7 @@ services:
     container_name: reverse_proxy
     restart: unless-stopped
     environment:
-      - DOMAIN_NAME=localhost                       # Your domain name or public IP
+      - DOMAIN_NAME=localhost                       # Domain name or public IP
     volumes:
       - ./ssl/key.pem:/etc/nginx/ssl/key.pem:ro     # SSL private key (host path → container path)
       - ./ssl/cert.pem:/etc/nginx/ssl/cert.pem:ro   # SSL certificate (host path → container path)
