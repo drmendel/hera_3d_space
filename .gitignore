@@ -1,2 +1,4 @@
 ssl/cert.pem
 ssl/key.pem
+data/hera
+data/tmp
