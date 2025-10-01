@@ -5,6 +5,8 @@ This folder contains the reverse proxy setup that wraps both the two part of the
  - [hera_spice_ws_server](https://github.com/drmendel/hera_spice_ws_server) - WebSocket server serving SPICE data
  - [hera_spice_3d_client](https://github.com/drmendel/hera_spice_3d_client) - Nginx webserver serving static content
 
+The live application can be accessed at: [hera3dspace.dynv6.net](https://hera3dspace.dynv6.net)
+
 ## 🎯 Purpose
 
 This repository does **not** provide standalone program features for the application, but it give multiple option for deployment.  
