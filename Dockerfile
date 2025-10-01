@@ -8,6 +8,6 @@ RUN chmod +x /entrypoint.sh
 
 EXPOSE 80 443
 
-ENV DOMAIN_NAME localhost
+ENV DOMAIN_NAME=localhost
 
 ENTRYPOINT ["/entrypoint.sh"]
